@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 
-public class Plate implements Comparable<Plate>{
+public class Plate implements Comparable<Plate> {
     ArrayList<String> logger;
     private int deep;
     private int radius;
@@ -12,7 +12,7 @@ public class Plate implements Comparable<Plate>{
 
     @Override
     public int compareTo(Plate plate) {
-        return this.deep*this.radius - plate.deep*plate.radius;
+        return this.deep * this.radius - plate.deep * plate.radius;
     }
 
     class Fortress {
@@ -32,26 +32,28 @@ public class Plate implements Comparable<Plate>{
             this.wall = wall;
         }
 
-        public void destroyMoat(){
+        public void destroyMoat() {
             moat = null;
         }
-        public void destroyTower(){
+
+        public void destroyTower() {
             tower = null;
         }
-        public void destroyWall(){
+
+        public void destroyWall() {
             wall = null;
         }
 
-        public void getFortressInfo(){
+        public void getFortressInfo() {
             logger.add("Крепость состоит из:");
 
-            if(moat!=null) logger.add("Ров: Глубина = " + moat.getDeep() + " Ширина = " + moat.getWidth());
+            if (moat != null) logger.add("Ров: Глубина = " + moat.getDeep() + " Ширина = " + moat.getWidth());
             else logger.add("Ров отсутствует");
 
-            if(wall!=null) logger.add("Стена: Высота = " + wall.getHigh() + " Ширина = " + wall.getWidth());
+            if (wall != null) logger.add("Стена: Высота = " + wall.getHigh() + " Ширина = " + wall.getWidth());
             else logger.add("Стена отсутствует");
 
-            if(tower!=null) logger.add("Башня: Высота = " + tower.getHigh() + " Радиус = " + tower.getRadius());
+            if (tower != null) logger.add("Башня: Высота = " + tower.getHigh() + " Радиус = " + tower.getRadius());
             else logger.add("Башня отсутствует");
         }
     }
@@ -68,9 +70,10 @@ public class Plate implements Comparable<Plate>{
         materialsInPlate.remove(null);
     }
 
-    public HashSet<Material> getMaterialsInPlate(){
+    public HashSet<Material> getMaterialsInPlate() {
         return materialsInPlate;
     }
+
     private Food[] foodInPlate = new Food[FoodType.values().length];
 
     public Food[] getFoodInPlate() {
@@ -85,7 +88,15 @@ public class Plate implements Comparable<Plate>{
         return radius;
     }
 
-    public void addFood(Food f, int quantity) throws  PlateOverflowException{
+    public void clear() {
+        for (int i = 0; i < FoodType.values().length; i++) {
+            foodInPlate[i] = null;
+        }
+        this.fullness = 0;
+        materialsInPlate.clear();
+    }
+
+    public void addFood(Food f, int quantity) throws PlateOverflowException {
 
         if (fullness < 100) {
             foodInPlate[f.getType().ordinal()] = f;
@@ -107,8 +118,8 @@ public class Plate implements Comparable<Plate>{
         this.fullness = fullness;
     }
 
-    public void getPlateStatus(){
-        int status = fullness/25;
+    public void getPlateStatus() {
+        int status = fullness / 25;
         if (fullness == 0) logger.add("Тарелка пустая");
         else if (fullness <= 25) logger.add("Тарелка почти пустая");
         else if (fullness <= 75) logger.add("В тарелке достаточно еды");
@@ -117,23 +128,24 @@ public class Plate implements Comparable<Plate>{
     }
 
     public Plate(int deep, int radius, ArrayList<String> logger) {
-        this.logger=logger;
+        this.logger = logger;
         this.deep = deep;
         this.radius = radius;
         fortress = new Fortress();
     }
 
-    class PlateOverflowException extends RuntimeException{
+    class PlateOverflowException extends RuntimeException {
         private int overflowValue = -1;
         private Food foodType;
 
         void getOverflowStatus() {
-            if (overflowValue != -1) logger.add("Тарелка была переполнена " + foodType.toString() + " на " + overflowValue + " %.");
-            else logger.add("Тарелка была переполнена на " + foodType.toString() + " неизвестное количество");;
+            if (overflowValue != -1)
+                logger.add("Тарелка была переполнена " + foodType.toString() + " на " + overflowValue + " %.");
+            else logger.add("Тарелка была переполнена на " + foodType.toString() + " неизвестное количество");
+            ;
         }
 
-        public PlateOverflowException(Food f, int overflowValue)
-        {
+        public PlateOverflowException(Food f, int overflowValue) {
             this.overflowValue = overflowValue;
             foodType = f;
         }
