@@ -11,7 +11,7 @@ abstract public class FortressPart {
         return material;
     }
 
-    public FortressPart(Material material){
+    public FortressPart(Material material) {
         setMaterial(material);
     }
 

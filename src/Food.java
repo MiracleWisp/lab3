@@ -1,13 +1,10 @@
 import java.util.ArrayList;
 import java.util.Vector;
 
-public class Food implements Material{
+public class Food implements Material {
     private FoodType type;
     private int shelfLife;
     public ArrayList<String> logger;
-
-
-
 
 
     public FoodType getType() {
@@ -19,9 +16,8 @@ public class Food implements Material{
     }
 
 
-    public void effect(Creature c)
-    {
-        switch (type){
+    public void effect(Creature c) {
+        switch (type) {
             case MEAT:
                 c.cry();
                 break;
@@ -44,17 +40,17 @@ public class Food implements Material{
         }
     }
 
-    public String getStringFoodType(){
+    public String getStringFoodType() {
         String string = "Неизвестная еда";
-        switch (type){
+        switch (type) {
             case MEAT:
-                string =  "Мясо";
+                string = "Мясо";
                 break;
             case FISH:
                 string = "Рыба";
                 break;
             case SOUP:
-                string =  "Суп";
+                string = "Суп";
                 break;
             case SAUCE:
                 string = "Соус";
@@ -74,22 +70,23 @@ public class Food implements Material{
         return this.getStringFoodType();
     }
 
-    private Food(){};
+    private Food() {
+    }
 
-    public Food(FoodType type, int shelfLife, ArrayList<String> logger)
-    {
+    ;
+
+    public Food(FoodType type, int shelfLife, ArrayList<String> logger) {
         this.logger = logger;
         this.type = type;
         this.shelfLife = shelfLife;
     }
 
     @Override
-    public boolean isLiquid(){
+    public boolean isLiquid() {
         return type.isLiquid();
     }
 
-    public Food(FoodType type)
-    {
+    public Food(FoodType type) {
         this.type = type;
     }
 
