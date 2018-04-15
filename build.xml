@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Lab4" default="build">
+    <property file="build.properties"/>
+    <path id="classpath.test">
+        <pathelement location="${junit.lib}" />
+        <pathelement location="${hamcrest-core}" />
+        <pathelement location="${ant.junit.lib}" />
+    </path>
+    <target name="compile">
+        <mkdir dir="${compiled.classes}"/>
+        <mkdir dir="${compiled.tests}"/>
+        <javac destdir="${compiled.classes}" includeantruntime="false">
+            <src path="${src}"/>
+            <classpath>
+                <pathelement location="${compiled.classes}"/>
+                <path refid="classpath.test"/>
+            </classpath>
+        </javac>
+        <javac destdir="${compiled.tests}" includeantruntime="false">
+            <src path="${test}"/>
+            <classpath>
+                <pathelement location="${compiled.classes}"/>
+                <path refid="classpath.test"/>
+            </classpath>
+        </javac>
+    </target>
+    <target name="build" depends="compile">
+        <jar destfile="${jar}" basedir="${compiled.classes}" compress="false" index="true">
+            <manifest>
+                <attribute name="Main-Class" value="Main"/>
+            </manifest>
+        </jar>
+    </target>
+    <target name="clean">
+        <delete dir="${compiled}"/>
+    </target>
+    <target name="music" depends="build" description="Play music when build">
+        <sound>
+            <success source="${succes}"/>
+            <fail source="${succes}"/>
+        </sound>
+    </target>
+    <target name="test" depends="build">
+        <junit fork="true" printsummary="on">
+            <formatter type="xml"/>
+            <classpath>
+                <path refid="classpath.test" />
+                <pathelement location="${compiled.classes}"/>
+                <pathelement location="${compiled.tests}"/>
+            </classpath>
+            <batchtest todir="reports">
+                <fileset dir="test" includes="*Test*.java" />
+            </batchtest>
+        </junit>
+    </target>
+    <target name="report" depends="test">
+        <junitreport todir="reports">
+            <fileset dir="reports">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="./report/html"/>
+        </junitreport>
+        <exec executable="git">
+            <arg value="add"/>
+            <arg value="reports/*"/>
+        </exec>
+        <exec executable="git">
+            <arg value="commit"/>
+            <arg value="-m"/>
+            <arg value="lolkek"/>
+        </exec>
+    </target>
+</project>
