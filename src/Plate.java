@@ -123,7 +123,7 @@ public class Plate implements Comparable<Plate> {
         if (fullness == 0) logger.add("Тарелка пустая");
         else if (fullness <= 25) logger.add("Тарелка почти пустая");
         else if (fullness <= 75) logger.add("В тарелке достаточно еды");
-        else if (fullness < 100) logger.add("Тарлке почти полная");
+        else if (fullness < 100) logger.add("Тарелка почти полная");
         else if (fullness == 100) logger.add("Тарелка полная");
     }
 
