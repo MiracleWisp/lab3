@@ -12,7 +12,7 @@ public class Carlson extends Creature implements FortressBuilder{
             throw new FortressBuildException();
 
             //logger.add()(getName() + " не удалось построить с заданными параметрами ");
-            //return null;
+            //return null; kekmeme
         }
     }
 
