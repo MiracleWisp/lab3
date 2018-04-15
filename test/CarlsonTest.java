@@ -15,15 +15,17 @@ public class CarlsonTest {
     static Food wrongFood = new Food(FoodType.FISH, 4, logger);
     static Food liquidFood = new Food(FoodType.SOUP, 4, logger);
 
-    @BeforeClass
-    public static void before() {
-        plate.addFood(food, 4);
-    }
+
 
     @After
     public void cleanLog() {
         logger.clear();
         plate.clear();
+    }
+
+    @Before
+    public void addFood() {
+        plate.addFood(food, 4);
     }
 
     @Test(expected = FortressBuilder.FortressBuildException.class)

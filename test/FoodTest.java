@@ -9,7 +9,7 @@ public class FoodTest {
     ArrayList<String> logger = new ArrayList<>();
     Food fish = new Food(FoodType.FISH, 7, logger);
     Food soup = new Food(FoodType.SOUP, 7, logger);
-    Creature c = new Human("Иван", "Усков", 21,
+    Creature c = new Human("Саша", "Усков", 21,
             true,5,7,logger);
     Creature young = new Carlson("Цопа",17,
             5,4,logger);
@@ -22,13 +22,13 @@ public class FoodTest {
     @Test
     public void effectOfFish(){
         fish.effect(c);
-        assertEquals("Иван подавился костью рыбы", logger.get(0));
+        assertEquals("Саша подавился костью рыбы", logger.get(0));
     }
 
     @Test
     public void effectOfSoup(){
         soup.effect(c);
-        assertEquals("Иван обжегся горячим супом",logger.get(0));
+        assertEquals("Саша обжегся горячим супом",logger.get(0));
     }
 
     @Test
