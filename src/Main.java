@@ -20,7 +20,7 @@ public class Main {
 
 
         try {
-            karlson.buildTower(meat, 3, 1, 30000000, plate);
+            karlson.buildTower(sauce, 3, 1, 30000000, plate);
         }
         catch (FortressBuilder.FortressBuildException e) {
             logger.add("Не удалось построить башню с заданными параметрами");

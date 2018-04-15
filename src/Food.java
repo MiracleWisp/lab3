@@ -85,7 +85,7 @@ public class Food implements Material{
 
     @Override
     public boolean isLiquid(){
-        return type.isLiquid;
+        return type.isLiquid();
     }
 
     public Food(FoodType type)

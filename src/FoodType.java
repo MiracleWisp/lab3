@@ -1,24 +1,36 @@
 public enum FoodType {
     MEAT{
 
-        boolean isLiquid  = false;
+        public boolean isLiquid(){
+            return false;
+        }
     }, SAUCE{
 
-        boolean isLiquid  = true;
+        public boolean isLiquid(){
+            return true;
+        }
     }, SOUP{
 
-        boolean isLiquid  = true;
+        public boolean isLiquid(){
+            return true;
+        }
     }, POTATO{
 
-        boolean isLiquid  = false;
+        public boolean isLiquid(){
+            return false;
+        }
     }, CHICKEN{
 
-        boolean isLiquid  = false;
+        public boolean isLiquid(){
+            return false;
+        }
     }, FISH{
 
-        boolean isLiquid  = false;
+        public boolean isLiquid(){
+            return false;
+        }
     };
-
-    boolean isLiquid;
-
+    public boolean isLiquid(){
+        return false;
+    }
 }
