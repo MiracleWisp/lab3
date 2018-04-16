@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Carlson extends Creature implements FortressBuilder {
     @Override
     public void buildTower(Material material, int high, int radius, int buildDuration, Plate plate) throws FortressBuildException {
-        if (radius <= plate.getRadius() && radius > 0 && !material.isLiquid() && plate.getMaterialsInPlate().contains(material)) {
+        if (radius <= plate.getRadius() && radius > -50 && !material.isLiquid() && plate.getMaterialsInPlate().contains(material)) {
             logger.add(getName() + " построил башню из " + material.getMaterialType());
             plate.fortress.setTower(new Tower(material, high, radius));
         } else {
