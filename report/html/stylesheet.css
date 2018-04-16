@@ -1,18 +1,25 @@
 
 body {
     font:normal 68% verdana,arial,helvetica;
-    color:#000000;
+    color:#eeeee0;
+    background:#481036;
 }
+
+a{
+    color:#fffffe;
+} :hover {
+    color:lightcoral;
+  }
 table tr td, table tr th {
     font-size: 68%;
 }
 table.details tr th{
     font-weight: bold;
     text-align:left;
-    background:#a6caf0;
+    background:#874268;
 }
 table.details tr td{
-    background:#eeeee0;
+    background:#672248;
 }
 
 p {

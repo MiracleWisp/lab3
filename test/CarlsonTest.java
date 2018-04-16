@@ -76,16 +76,16 @@ public class CarlsonTest {
     }
 
     @Test
-    public void rightTowerLog3() throws Exception {
-        carlson.buildTower(food, 32, 25, 3, plate);
-        assertEquals("Carlson построил башню из Курица", logger.get(0));
-    }
-
-    @Test
     public void rightMoatLog() throws Exception {
         plate.addFood(liquidFood, 4);
         carlson.buildMoat(liquidFood, 22, 22, 3, plate);
         assertEquals("Carlson вырыл ров и заполнил его Суп", logger.get(0));
+    }
+
+    @Test
+    public void rightTowerLog3() throws Exception {
+        carlson.buildTower(food, 32, 25, 3, plate);
+        assertEquals("Carlson построил башню из Курица", logger.get(0));
     }
 
     @Test
