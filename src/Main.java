@@ -55,6 +55,8 @@ public class Main {
         /*Creature.Coordinates.printDistanceBetween(frekenBock,junior);*/
         frekenBock.lookAt(junior, TargetActionTypes.FRIGHTENINGLY);
 
-        logger.forEach(System.out::println);
+        for(int i=0; i<logger.size();i++){
+            System.out.println(logger.get(i));
+        }
     }
 }

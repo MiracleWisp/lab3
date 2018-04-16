@@ -58,7 +58,7 @@
             <fileset dir="reports">
                 <include name="TEST-*.xml"/>
             </fileset>
-            <report format="frames" todir="./report/html"/>
+            <report format="noframes" todir="./report/html"/>
         </junitreport>
         <exec executable="git">
             <arg value="add"/>

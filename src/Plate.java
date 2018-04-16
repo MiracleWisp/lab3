@@ -65,7 +65,7 @@ public class Plate implements Comparable<Plate> {
     transient private HashSet<Material> materialsInPlate = new HashSet<Material>();
 
     public void fillMaterialsInPlate() {
-        if (materialsInPlate == null) materialsInPlate = new HashSet<>();
+        if (materialsInPlate == null) materialsInPlate = new HashSet<Material>();
         this.materialsInPlate.addAll(Arrays.asList(foodInPlate));
         materialsInPlate.remove(null);
     }
