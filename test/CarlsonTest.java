@@ -16,7 +16,6 @@ public class CarlsonTest {
     static Food liquidFood = new Food(FoodType.SOUP, 4, logger);
 
 
-
     @After
     public void cleanLog() {
         logger.clear();
@@ -29,13 +28,28 @@ public class CarlsonTest {
     }
 
     @Test(expected = FortressBuilder.FortressBuildException.class)
-    public void towerBigRadius() throws Exception {
+    public void towerRadius1() throws Exception {
+        carlson.buildTower(food, 53, -20, 3, plate);
+    }
+
+    @Test(expected = FortressBuilder.FortressBuildException.class)
+    public void towerRadius2() throws Exception {
+        carlson.buildTower(food, 53, -1, 3, plate);
+    }
+
+    @Test(expected = FortressBuilder.FortressBuildException.class)
+    public void towerRadius3() throws Exception {
+        carlson.buildTower(food, 53, 0, 3, plate);
+    }
+
+    @Test(expected = FortressBuilder.FortressBuildException.class)
+    public void towerRadius4() throws Exception {
         carlson.buildTower(food, 53, 26, 3, plate);
     }
 
     @Test(expected = FortressBuilder.FortressBuildException.class)
-    public void towerNegativeRadius() throws Exception {
-        carlson.buildTower(food, 53, -26, 3, plate);
+    public void towerRadius5() throws Exception {
+        carlson.buildTower(food, 53, 50, 3, plate);
     }
 
     @Test(expected = FortressBuilder.FortressBuildException.class)
@@ -50,8 +64,20 @@ public class CarlsonTest {
     }
 
     @Test
-    public void rightTowerLog() throws Exception {
-        carlson.buildTower(food, 32, 22, 3, plate);
+    public void rightTowerLog1() throws Exception {
+        carlson.buildTower(food, 32, 1, 3, plate);
+        assertEquals("Carlson построил башню из Курица", logger.get(0));
+    }
+
+    @Test
+    public void rightTowerLog2() throws Exception {
+        carlson.buildTower(food, 32, 15, 3, plate);
+        assertEquals("Carlson построил башню из Курица", logger.get(0));
+    }
+
+    @Test
+    public void rightTowerLog3() throws Exception {
+        carlson.buildTower(food, 32, 25, 3, plate);
         assertEquals("Carlson построил башню из Курица", logger.get(0));
     }
 
