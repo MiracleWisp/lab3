@@ -7,7 +7,7 @@ import java.util.HashSet;
 import static org.junit.Assert.*;
 
 public class PlateTest {
-    ArrayList<String> logger = new ArrayList<>();
+    ArrayList<String> logger = new ArrayList<String>();
     Plate plate = new Plate(4, 5, logger);
     Food food = new Food(FoodType.SOUP);
 

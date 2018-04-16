@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 public class CarlsonTest {
-    static ArrayList<String> logger = new ArrayList<>();
+    static ArrayList<String> logger = new ArrayList<String>();
     static Plate plate = new Plate(25, 25, logger);
     static Carlson carlson = new Carlson("Carlson", 37, 20, 20, logger);
     static Food food = new Food(FoodType.CHICKEN, 7, logger);

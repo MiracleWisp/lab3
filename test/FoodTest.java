@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 public class FoodTest {
-    ArrayList<String> logger = new ArrayList<>();
+    ArrayList<String> logger = new ArrayList<String>();
     Food fish = new Food(FoodType.FISH, 7, logger);
     Food soup = new Food(FoodType.SOUP, 7, logger);
     Creature c = new Human("Саша", "Усков", 21,

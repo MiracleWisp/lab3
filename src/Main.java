@@ -3,7 +3,7 @@ import java.util.Collections;
 
 public class Main {
     public static void main(String[] args){
-        ArrayList<String> logger = new ArrayList<>();
+        ArrayList<String> logger = new ArrayList<String>();
         Human junior = new Human("Малыш", "Свантесон", 11, true, 1,6,logger);
         Human frekenBock = new Human("Фрекен", "Бок", 44, false,4,2,logger);
         Carlson karlson = new Carlson("Карлсон", 35,1,4,logger);
